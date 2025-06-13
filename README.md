@@ -1,4 +1,4 @@
-<b>🦠 COVID-19 Insights Dashboard</b> <br>
+<h4>🦠 COVID-19 Insights Dashboard</h4> <br>
 A simple and interactive COVID-19 data analysis dashboard built using Python (Pandas, Matplotlib, NumPy) and Streamlit for easy visualizations.
 
 ---
