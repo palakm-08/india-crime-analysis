@@ -35,4 +35,4 @@ streamlit run app.py
 
 ##Data Source
 The dataset used in this project is sourced from:
-🔗 Our World in Data – COVID-19 Dataset (CSV)
+🔗 [Our World in Data – COVID-19 Dataset (CSV)](https://catalog.ourworldindata.org/garden/covid/latest/compact/compact.csv)
