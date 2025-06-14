@@ -1,12 +1,12 @@
 <h3>🦠 COVID-19 Insights Dashboard</h3> <br>
-A simple and interactive COVID-19 data analysis dashboard built using Python (Pandas, Matplotlib, NumPy) and Streamlit for easy visualizations.
+A simple and interactive COVID-19 data analysis project built using Python (Pandas, Matplotlib, NumPy) and Jupyter Notebook for easy visualizations.
 
 ---
 
 <b>Features</b><br>
 1. Analyzes COVID-19 data with clear visualizations<br>
 
-2. Interactive dashboard built using Streamlit<br>
+2. Interactive and beginner-friendly analysis in Jupyter Notebook.<br>
 
 3. Tracks trends: Cases, Recoveries, and Deaths<br>
 
@@ -20,16 +20,15 @@ cd covid-19-insights<br>
 
 <b>Install required libraries</b> <br>
 
-pip install pandas matplotlib numpy streamlit
+pip install pandas matplotlib numpy 
 
 ---
 
 <b>Usage</b><br>
-Run the Streamlit app with:<br>
+Simply run the Python script(s) inside the project to generate plots and insights:
 
-streamlit run app.py<br>
-streamlit run app.py<br>
-(Open the URL shown in your browser)<br>
+jupyter notebook covid_analysis.ipynb
+All plots will be displayed in your Python environment.
 
 ---
 
