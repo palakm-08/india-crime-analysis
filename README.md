@@ -34,4 +34,4 @@ All plots will be displayed in your Python environment.
 
 <b>Data Source</b><br>
 The dataset used in this project is sourced from:<br>
-🔗 [Our World in Data – COVID-19 Dataset (CSV)](https://catalog.ourworldindata.org/garden/covid/latest/compact/compact.csv)
+🔗  https://covid.ourworldindata.org/data/owid-covid-data.csv
