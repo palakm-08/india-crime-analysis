@@ -62,3 +62,32 @@ plt.annotate(
 plt.legend()
 plt.grid(True, alpha = 0.7, linestyle = '--')
 plt.show()
+
+
+
+
+
+#---------->Total Reported Crimes per City<----------
+
+crime_city = crime.groupby('City')['Report Number'].count().reset_index().sort_values(by = 'Report Number', ascending = False)
+crime_city
+
+cities = crime_city['City']
+reports = crime_city['Report Number']
+
+cities = cities[::-1]
+reports = reports[::-1]
+
+plt.figure(figsize=(10, 6))
+bars = plt.barh(cities, reports, color='indianred')
+
+for bar in bars:
+    plt.text(bar.get_width() + 50, bar.get_y() + bar.get_height()/2,
+             str(bar.get_width()), va = 'center')
+
+plt.xlabel('Number of Crime Reports')
+plt.ylabel('Cities')
+plt.title('Crime Reports by City')
+plt.tight_layout()
+plt.show()
+
