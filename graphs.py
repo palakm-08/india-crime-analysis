@@ -7,6 +7,7 @@ file_path = os.path.join(os.path.dirname(__file__), "crime_dataset_india.csv")
 crime = pd.read_csv(file_path)
 
 
+
 #------------>Year-wise Crime Trend<----------
 crime['Year'] = pd.to_datetime(crime['Date of Occurrence'], errors = 'coerce').dt.year
 most_crime_year = crime.groupby('Year')['Report Number'].count().reset_index().sort_values(by = 'Report Number', ascending = False)
