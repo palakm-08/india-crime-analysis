@@ -12,8 +12,6 @@ How do crime patterns change over time (yearly, monthly, hourly)?
 
 Are certain age groups or genders more affected?
 
-Which types of weapons are most frequently used?
-
 Do different types of crime peak at different times?
 
 ---
