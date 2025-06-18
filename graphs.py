@@ -16,7 +16,7 @@ x = most_crime_year['Year']
 y = most_crime_year['Report Number']
 
 plt.figure(figsize=(8, 4))
-plt.plot(x, y, marker = 'o', markersize = 10, label = 'Total Crimes')
+plt.plot(x, y, marker = 'o', markersize = 10, label='Total Crimes')
 plt.xlabel('Years', fontdict={'fontsize' : 14})
 plt.ylabel('Total Crimes', fontdict={'fontsize' : 14})
 plt.title('Year-wise Crime Trend', fontdict={'fontsize' : 18})
