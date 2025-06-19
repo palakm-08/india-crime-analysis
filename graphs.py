@@ -39,10 +39,19 @@ crime['Year'] = pd.to_datetime(crime['Date of Occurrence'], errors = 'coerce').d
 most_crime_year = crime.groupby('Year')['Report Number'].count().reset_index().sort_values(by = 'Report Number', ascending = False)
 most_crime_year
 
-fig, ax1 = plt.subplots()
+x = most_crime_year['Year']
+y = most_crime_year['Report Number']
 
+plt.figure(figsize=(8, 4))
+plt.bar(x, y, label='Total Crimes', zorder = 5)
+plt.xlabel('Years', fontdict={'fontsize' : 14})
+plt.ylabel('Total Crimes', fontdict={'fontsize' : 14})
+plt.title('Year-wise Crime Trend', fontdict={'fontsize' : 18})
+plt.xticks(x)
 
-
+plt.legend(bbox_to_anchor = (1, 1))
+plt.grid(True, alpha = 0.7)
+plt.show()
 
 
 
