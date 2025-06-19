@@ -131,3 +131,8 @@ plt.xlabel('Months')
 plt.ylabel('No. Of Crimes')
 plt.title('Monthly Crime Counts by Year in India (2020–2023)', fontdict={'fontsize' : 16})
 plt.show()
+
+
+
+
+#----------------->
