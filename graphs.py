@@ -8,24 +8,40 @@ crime = pd.read_csv(file_path)
 
 
 
+#---------->Total Reported Crimes per City<----------
+
+crime_city = crime.groupby('City')['Report Number'].count().reset_index().sort_values(by = 'Report Number', ascending = False)
+crime_city
+
+cities = crime_city['City']
+reports = crime_city['Report Number']
+
+cities = cities[::-1]
+reports = reports[::-1]
+
+plt.figure(figsize=(10, 6))
+bars = plt.barh(cities, reports, color='indianred')
+
+for bar in bars:
+    plt.text(bar.get_width() + 50, bar.get_y() + bar.get_height()/2,
+             str(bar.get_width()), va = 'center')
+
+plt.xlabel('Number of Crime Reports')
+plt.ylabel('Cities')
+plt.title('Crime Reports by City')
+plt.tight_layout()
+plt.show()
+
+
+
 #------------>Year-wise Crime Trend<----------
 crime['Year'] = pd.to_datetime(crime['Date of Occurrence'], errors = 'coerce').dt.year
 most_crime_year = crime.groupby('Year')['Report Number'].count().reset_index().sort_values(by = 'Report Number', ascending = False)
 most_crime_year
 
-x = most_crime_year['Year']
-y = most_crime_year['Report Number']
+fig, ax1 = plt.subplots()
 
-plt.figure(figsize=(8, 4))
-plt.plot(x, y, marker = 'o', markersize = 10, label='Total Crimes')
-plt.xlabel('Years', fontdict={'fontsize' : 14})
-plt.ylabel('Total Crimes', fontdict={'fontsize' : 14})
-plt.title('Year-wise Crime Trend', fontdict={'fontsize' : 18})
-plt.xticks(x)
 
-plt.legend(bbox_to_anchor = (1, 1))
-plt.grid()
-plt.show()
 
 
 
@@ -67,28 +83,41 @@ plt.show()
 
 
 
+#--------------->Which Gender is Most Affected by Crime in India?<------------------
+victim_gender = crime.groupby('Victim Gender')['Report Number'].count().reset_index().sort_values(by = 'Report Number', ascending=False)
+victim_gender
 
-#---------->Total Reported Crimes per City<----------
+x = victim_gender['Victim Gender']
+y = victim_gender['Report Number']
+plt.figure(figsize = (8, 4), dpi = 100)
 
-crime_city = crime.groupby('City')['Report Number'].count().reset_index().sort_values(by = 'Report Number', ascending = False)
-crime_city
-
-cities = crime_city['City']
-reports = crime_city['Report Number']
-
-cities = cities[::-1]
-reports = reports[::-1]
-
-plt.figure(figsize=(10, 6))
-bars = plt.barh(cities, reports, color='indianred')
-
-for bar in bars:
-    plt.text(bar.get_width() + 50, bar.get_y() + bar.get_height()/2,
-             str(bar.get_width()), va = 'center')
-
-plt.xlabel('Number of Crime Reports')
-plt.ylabel('Cities')
-plt.title('Crime Reports by City')
-plt.tight_layout()
+plt.bar(x, y, color='#1a3d75')
+plt.xlabel('Gender')
+plt.ylabel('No. Of Crimes')
+plt.title('Crime Victim Count by Gender in India (2020–2024)', fontdict={'fontsize' : 16})
 plt.show()
 
+
+
+
+#----------->Monthly Crime Counts by Year in India (2020–2023)<--------
+import calendar
+
+crime['Month'] = pd.to_datetime(crime['Date of Occurrence']).dt.month
+lt_2024 = crime[crime['Year'] < 2024]
+crime_month = lt_2024.groupby('Month')['Report Number'].count().reset_index()
+crime_month
+
+x = crime_month['Month']
+y = crime_month['Report Number']
+plt.figure(figsize = (9, 6), dpi = 100)
+
+plt.bar(x, y, color='#15694d')
+
+month_names = [calendar.month_name[m] for m in x]
+plt.xticks(ticks=x, labels=month_names, rotation=45)
+
+plt.xlabel('Months')
+plt.ylabel('No. Of Crimes')
+plt.title('Monthly Crime Counts by Year in India (2020–2023)', fontdict={'fontsize' : 16})
+plt.show()
