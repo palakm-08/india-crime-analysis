@@ -133,7 +133,3 @@ plt.title('Monthly Crime Counts by Year in India (2020–2023)', fontdict={'font
 plt.show()
 
 
-
-
-#----------------->
-
